@@ -1,4 +1,5 @@
 import bpy
+from . import CustomMenu
 
 # This is standard metadata for the plugin.
 bl_info = {
@@ -14,9 +15,13 @@ bl_info = {
 }
 
 
-def register(): ...
 
-def unregister(): ...
+def register():
+    CustomMenu.register()
+
+
+def unregister():
+    CustomMenu.unregister()
 
 
 if __name__ == "__main__":
