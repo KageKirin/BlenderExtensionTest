@@ -1,0 +1,25 @@
+name: publish
+
+on:
+  release:
+    types: [published]
+
+concurrency:
+  group: ${{ github.actor_id }}-${{ github.workflow }}-${{ github.ref }}-${{ github.sha }}
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    permissions:
+      contents: read
+      packages: write
+    uses: kagekirin/gha-py-toolbox/.github/workflows/blender-publish.yml@main
+    with:
+      blender-release: ${{ vars.BLENDER_RELEASE }}
+      blender-version: ${{ vars.BLENDER_VERSION }}
+      blender-platform: ${{ vars.BLENDER_PLATFORM }}
+      blender-url: ${{ vars.BLENDER_URL }}
+      blender-path: ${{ vars.BLENDER_PATH }}
+      manifest-toml: ${{ vars.MANIFEST_TOML }}
+      dry-run: false
+    secrets: inherit
