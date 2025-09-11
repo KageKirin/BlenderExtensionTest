@@ -34,3 +34,18 @@ jobs:
     with:
       dry-run: false
     secrets: inherit
+
+
+  pack:
+    needs:
+    - build
+    uses: kagekirin/gha-py-toolbox/.github/workflows/blender-publish.yml@main
+    with:
+      blender-release: ${{ vars.BLENDER_RELEASE }}
+      blender-version: ${{ vars.BLENDER_VERSION }}
+      blender-platform: ${{ vars.BLENDER_PLATFORM }}
+      blender-url: ${{ vars.BLENDER_URL }}
+      blender-path: ${{ vars.BLENDER_PATH }}
+      manifest-toml: ${{ vars.MANIFEST_TOML }}
+      dry-run: true
+    secrets: inherit
