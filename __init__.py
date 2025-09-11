@@ -1,5 +1,6 @@
 import bpy
 from . import CustomMenu
+from . import CustomContextMenu
 
 # This is standard metadata for the plugin.
 bl_info = {
@@ -18,10 +19,12 @@ bl_info = {
 
 def register():
     CustomMenu.register()
+    CustomContextMenu.register()
 
 
 def unregister():
     CustomMenu.unregister()
+    CustomContextMenu.unregister()
 
     for pt in bpy.types.Menu.__subclasses__():
         if "bl_rna" in pt.__dict__:  # <-- check if already removed!
