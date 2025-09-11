@@ -30,6 +30,29 @@
       "id": "blenderextensiontest",
       "name": "BlenderExtensionTest",
       "tagline": "Testing Blender extensions",
+      "version": "0.0.6",
+      "type": "add-on",
+      "maintainer": "KageKirin",
+      "license": [
+        "SPDX:GPL-3.0-or-later"
+      ],
+      "blender_version_min": "4.2.0",
+      "copyright": [
+        "2025 KageKirin"
+      ],
+      "tags": [
+        "Development",
+        "System"
+      ],
+      "archive_url": "./blenderextensiontest-0.0.6.zip",
+      "archive_size": 17980,
+      "archive_hash": "sha256:d81f528d4e1b620d61d245c489d3a85f6447513b2dd6c605751304b09abe00db"
+    },
+    {
+      "schema_version": "1.0.0",
+      "id": "blenderextensiontest",
+      "name": "BlenderExtensionTest",
+      "tagline": "Testing Blender extensions",
       "version": "0.0.4",
       "type": "add-on",
       "maintainer": "KageKirin",
