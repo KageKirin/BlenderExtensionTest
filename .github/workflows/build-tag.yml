@@ -1,10 +1,9 @@
-name: build-ci
+name: build-tag
 
 on:
-  pull_request:
-    branches:
-      - 'main'
-    types: [closed]
+  push:
+    tags:
+      - '*'
 
 concurrency:
   group: ${{ github.actor_id }}-${{ github.workflow }}-${{ github.ref }}-${{ github.sha }}
@@ -20,17 +19,4 @@ jobs:
       blender-url: ${{ vars.BLENDER_URL }}
       blender-path: ${{ vars.BLENDER_PATH }}
       manifest-toml: ${{ vars.MANIFEST_TOML }}
-    secrets: inherit
-
-
-  tag-release:
-    if: github.event.pull_request.merged == true
-    permissions:
-      contents: write
-      packages: read
-    needs:
-    - build
-    uses: kagekirin/gha-py-toolbox/.github/workflows/github-release.yml@main
-    with:
-      dry-run: false
     secrets: inherit
